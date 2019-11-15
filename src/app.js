@@ -7,16 +7,4 @@ new Vue({
     counter
   },
 
-
-  data:{
-
-    name: 'Nick',
-  },
-  methods:{
-
-    tada(){
-      console.log('Tada');
-    },
-  }
-
 });

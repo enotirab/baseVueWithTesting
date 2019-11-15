@@ -12,7 +12,7 @@ describe('Counter', () => {
   });
 
   it('renders the correct markup', () => {
-    expect(wrapper.html()).toContain('<span class="count">0</span>');
+    expect(wrapper.html()).toContain('<div class="count">0</div>');
   });
 
   // it's also easy to check for the existence of elements
@@ -44,5 +44,16 @@ describe('Counter', () => {
     await Vue.nextTick();
     expect(wrapper.vm.count).toBe(0);
   });
+
+
+  it('the reset button sets count to 0', async () => {
+    wrapper.vm.count = 10;
+    expect(wrapper.vm.count).toBe(10);
+    const button = wrapper.find({ref: 'reset'});
+    button.trigger('click');
+    await Vue.nextTick();
+    expect(wrapper.vm.count).toBe(0);
+  });
+
 
 });
